@@ -1,0 +1,1 @@
+export default function Footer(){return <footer><div className="wrap footer"><b>🐘 Elephant Rescue</b><span>Protecting Elephants. Protecting Communities. Preserving Our Forests.</span><span>College project · Demo platform</span></div></footer>}

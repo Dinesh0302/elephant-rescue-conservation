@@ -1,0 +1,5 @@
+const USERS='elephant_users',CURRENT='elephant_current_user';
+export const getUsers=()=>JSON.parse(localStorage.getItem(USERS)||'[]');
+export function registerUser(data){const users=getUsers();if(users.some(u=>u.email.toLowerCase()===data.email.toLowerCase()))throw Error('An account already exists with this email.');const user={id:'U-'+Date.now(),...data,createdAt:new Date().toISOString()};users.push(user);localStorage.setItem(USERS,JSON.stringify(users));return user}
+export function loginUser(email,password){const user=getUsers().find(u=>u.email.toLowerCase()===email.toLowerCase()&&u.password===password);if(!user)throw Error('Email or password is not correct.');localStorage.setItem(CURRENT,JSON.stringify(user));return user}
+export const getCurrentUser=()=>JSON.parse(localStorage.getItem(CURRENT)||'null');export const isAuthenticated=()=>!!getCurrentUser();export const logoutUser=()=>localStorage.removeItem(CURRENT);export const updateUser=data=>{const cur=getCurrentUser(),next={...cur,...data};localStorage.setItem(CURRENT,JSON.stringify(next));localStorage.setItem(USERS,JSON.stringify(getUsers().map(u=>u.id===next.id?next:u)));return next};

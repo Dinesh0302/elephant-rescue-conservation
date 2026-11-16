@@ -1,0 +1,1 @@
+export default function FooterDeveloper(){return <footer><div className="wrap footer"><div><b>🐘 Elephant Rescue</b><br/><span>Protecting Elephants. Protecting Communities. Preserving Our Forests.</span></div><div><b>Developed by Manish G</b><br/><span>manish.g.demo@elephantrescue.org · +91 98765 43210</span></div><span>College project · Demo platform</span></div></footer>}
